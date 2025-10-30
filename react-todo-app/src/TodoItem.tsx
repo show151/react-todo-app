@@ -12,13 +12,17 @@ const TodoItem = (props: Props) => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center">
-        <input
-          type="checkbox"
-          checked={todo.isDone}
-          onChange={(e) => props.updateIsDone(todo.id, e.target.checked)}
-          className="mr-1.5 cursor-pointer"
-        />
-        {todo.name}
+        <label className="flex items-center cursor-pointer">
+          <input
+            type="checkbox"
+            checked={todo.isDone}
+            onChange={(e) => props.updateIsDone(todo.id, e.target.checked)}
+            className="mr-1.5"
+            aria-label={`Toggle ${todo.name}`}
+            title={`Toggle ${todo.name}`}
+          />
+          <span>{todo.name}</span>
+        </label>
       </div>
       <div>
         <button
